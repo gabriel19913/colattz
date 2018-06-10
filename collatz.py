@@ -4,17 +4,21 @@ def collatz(number):
     else:
         return 3 * number + 1
 
-n = int(input('Type a number: '))
-print('=' * 50)
-print('The Collatz conjecture for the number ' + str(n) + ' is: ')
-aux = 0
-new = n
+try:
+    n = int(input('Type a number: '))
+except ValueError:
+    print('You must type a number!')
+else:
+    print('=' * 45)
+    print('The Collatz conjecture for the number ' + str(n) + ' is: ')
+    aux = 0
+    new = n
 
-while True:
-    aux = collatz(new)
-    new = collatz(aux)
-    if aux == 1:
-        new = ' '
-    print(aux, new, end=' ')
-    if aux == 1 or new == 1:
-        break
+    while True:
+        aux = collatz(new)
+        new = collatz(aux)
+        if aux == 1:
+            new = ' '
+        print(aux, new, end=' ')
+        if aux == 1 or new == 1:
+            break
